@@ -2,7 +2,9 @@ const axios = require('axios').default;
 const express = require('express');
 
 const hbs = require('hbs');
+
 const path = require('path');
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
 const PunkAPIWrapper = require('punkapi-javascript-wrapper');
 
 const app = express();

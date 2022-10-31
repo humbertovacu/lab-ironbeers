@@ -1,13 +1,6 @@
 <h1>Beer Selection</h1>
 
 <section>
-    {{#each theBeers}}
-    <div>
-    <img src="{{image_url}}" alt="beer image">
-        <h1>{{name}}</h1>
-        <h2>{{tagline}}</h2>
-        <p>{{description}}</p>
-    {{/each}}
-    </div>
+    {{> beerpartial }}
 </section>
 
