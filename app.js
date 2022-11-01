@@ -11,6 +11,7 @@ const app = express();
 const punkAPI = new PunkAPIWrapper();
 
 
+
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -39,5 +40,11 @@ app.get('/random-beer', (req, res) => {
     res.render('random-beer', {newBeer:random})
   })
 })
+
+app.get('/beers/:id', (req, res) => {
+ let beerNumber = req.params.id;
+ let beerID = punkAPI.getBeer(beerNumber);
+ beerID.then(beer => {res.render('beer-id', {selectedBeer: beer})})
+});
 
 app.listen(3000, () => console.log('🏃‍ on port 3000'));
